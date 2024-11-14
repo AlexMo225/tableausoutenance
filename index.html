@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Soutenances</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #6D28D9;
+            --secondary-color: #9333EA;
+            --accent-color: #2563EB;
+            --success-color: #10B981;
+            --danger-color: #EF4444;
+            --background-color: #F3F4F6;
+        }
+        body {
+            background-color: var(--background-color);
+        }
+    </style>
+</head>
+<body class="p-6">
+
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12 tracking-wide">Au Tableau</h1>
+
+    <!-- Formulaire de création de classe -->
+    <section id="create-class-section" class="bg-white shadow-xl rounded-lg p-8 mb-8 max-w-full sm:max-w-4xl mx-auto">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Formulaire de création d'une classe</h2>
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <input type="text" id="class-name-input" placeholder="Nom de la classe" class="flex-1 p-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-all duration-300">
+            <button id="create-class-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-200 transform hover:scale-105">Créer</button>
+        </div>
+        <ul id="class-list" class="list-disc pl-6 text-gray-700">
+            <!-- Les classes seront listées ici -->
+        </ul>
+    </section>
+
+    <!-- Liste des étudiants par classe -->
+    <section id="student-section" class="bg-white shadow-xl rounded-lg p-8 mb-8 max-w-full sm:max-w-4xl mx-auto">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Classe</h2>
+        <select id="class-select" class="w-full sm:max-w-xs p-4 border-2 border-gray-300 rounded-lg mb-6 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-all duration-300">
+            <!-- Options de classes -->
+        </select>
+        <ul id="student-list" class="list-disc pl-6 text-gray-700 mb-6">
+            <!-- Les étudiants seront listés ici -->
+        </ul>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <input type="text" id="student-name-input" placeholder="Nom de l'étudiant" class="flex-1 p-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-all duration-300">
+            <button id="add-student-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-200 transform hover:scale-105 w-full sm:w-auto">Ajouter</button>
+        </div>
+    </section>
+
+    <!-- Gestion des soutenances -->
+    <section id="soutenance-section" class="bg-white shadow-xl rounded-lg p-8 mb-8 max-w-full sm:max-w-4xl mx-auto">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Soutenance</h2>
+        <select id="soutenance-class-select" class="w-full sm:max-w-xs p-4 border-2 border-gray-300 rounded-lg mb-6 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-all duration-300">
+            <!-- Options de classes -->
+        </select>
+        <input type="text" id="soutenance-name-input" placeholder="Nom de la soutenance" class="w-full p-4 mb-6 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-all duration-300">
+        <button id="start-soutenance-btn" class="w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-200 transform hover:scale-105 mb-6">Créer</button>
+
+        <div id="soutenance-info" class="space-y-4 text-gray-700">
+            <p id="students-status">Nombre d'étudiants : <span id="total-students" class="font-semibold text-indigo-900"></span></p>
+            <p id="passed-students">Étudiants déjà passés : <span id="passed-count" class="font-semibold text-green-600"></span></p>
+            <p id="remaining-students">Étudiants restants : <span id="remaining-count" class="font-semibold text-red-600"></span></p>
+        </div>
+
+        <button id="call-student-btn" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 transform hover:scale-105 mt-6">Au Tableau</button>
+        <p id="current-student" class="mt-6 text-gray-800 font-semibold"></p>
+        <p id="soutenance-end-message" class="mt-4 text-green-600 font-bold"></p>
+    </section>
+    <script src="app.js" defer></script>
+</body>
+</html>
